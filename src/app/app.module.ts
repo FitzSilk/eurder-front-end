@@ -8,16 +8,18 @@ import {MessagesComponent} from './messages/messages.component';
 import {AppRoutingModule} from './app-routing.module';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
-import { CustomerComponent } from './customer/customer.component';
+import {CustomerComponent} from './customer/customer.component';
+import {CustomerDetailComponent} from './customer-detail/customer-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemComponent,
     ItemDetailComponent,
+    CustomerComponent,
+    CustomerDetailComponent,
     MessagesComponent,
-    DashboardComponent,
-    CustomerComponent
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

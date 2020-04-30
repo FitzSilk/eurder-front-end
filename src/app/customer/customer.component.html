@@ -1,1 +1,8 @@
-<p>customer works!</p>
+<h2>Customers</h2>
+<ul class="customer">
+  <li *ngFor="let customer of customers">
+    <a routerLink="/customer/{{customer.id}}">
+      <span class="badge">{{customer.id}}.</span> {{customer.firstName}} - {{customer.lastName}}
+    </a>
+  </li>
+</ul>
