@@ -10,7 +10,9 @@ describe('ItemComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ItemComponent],
-      imports: [HttpClientTestingModule]
+      imports: [
+        HttpClientTestingModule
+      ]
     })
       .compileComponents();
   }));
