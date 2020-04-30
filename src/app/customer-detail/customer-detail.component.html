@@ -1,1 +1,11 @@
-<p>customer-detail works!</p>
+<div *ngIf="customer">
+  <h2>{{customer.lastName | uppercase}} {{customer.firstName}}</h2>
+  <p>
+    <span>email: <a href="mailto:{{customer.email}}">{{customer.email}}</a></span><br/>
+    <span>telephone: {{customer.phoneNumber}}</span><br/>
+    <span>address: {{customer.address.street}}, {{customer.address.streetNumber}} - {{customer.address.postalCode}} {{customer.address.city}}</span>
+  </p>
+  <div>
+    <button (click)="goBack()">go back</button>
+  </div>
+</div>

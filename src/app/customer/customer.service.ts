@@ -19,6 +19,7 @@ export class CustomerService {
   getCustomers(): Observable<Customer[]> {
     return this.http.get<Customer[]>(this.customerUrl)
       .pipe(
+        tap(_ => this.log(`fetched all customers`)),
         catchError(this.handleError<Customer[]>('getCustomers', [])));
   }
 
