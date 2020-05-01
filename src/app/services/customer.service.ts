@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Customer} from '../customer/imports/customer';
 import {Observable, of} from 'rxjs';
 import {MessageService} from './message.service';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
 
 @Injectable({
@@ -11,6 +11,10 @@ import {catchError, tap} from 'rxjs/operators';
 export class CustomerService {
 
   private customerUrl = 'http://localhost:8080/api/member';  // URL to web api
+
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
 
   constructor(private http: HttpClient, private messageService: MessageService) {
   }
@@ -29,6 +33,14 @@ export class CustomerService {
     return this.http.get<Customer>(url).pipe(
       tap(_ => this.log(`fetched customer id=${id}`)),
       catchError(this.handleError<Customer>(`getCustomer id=${id}`))
+    );
+  }
+
+  /** PUT: update the hero on the server */
+  updateCustomer(customer: Customer): Observable<any> {
+    return this.http.put(this.customerUrl, customer, this.httpOptions).pipe(
+      tap(_ => this.log(`updated customer id=${customer.id}`)),
+      catchError(this.handleError<any>('updateCustomer'))
     );
   }
 

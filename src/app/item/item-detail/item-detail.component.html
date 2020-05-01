@@ -11,5 +11,6 @@
       <input [(ngModel)]="item.amount" placeholder="amount"/>
     </label>
   </div>
+  <button routerLink="/update/{{item.id}}">update</button>
   <button (click)="goBack()">go back</button>
 </div>

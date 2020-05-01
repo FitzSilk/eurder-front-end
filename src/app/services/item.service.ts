@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Item} from '../item/item';
 import {Observable, of} from 'rxjs';
 import {MessageService} from './message.service';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
 
 @Injectable({
@@ -11,6 +11,10 @@ import {catchError, tap} from 'rxjs/operators';
 export class ItemService {
 
   private itemsUrl = 'http://localhost:8080/api/item';  // URL to web api
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(private http: HttpClient, private messageService: MessageService) {
   }
@@ -29,6 +33,14 @@ export class ItemService {
     return this.http.get<Item>(url).pipe(
       tap(_ => this.log(`fetched item id=${id}`)),
       catchError(this.handleError<Item>(`getItem id=${id}`))
+    );
+  }
+
+  /** PUT: update the hero on the server */
+  updateItem(item: Item): Observable<any> {
+    return this.http.put(this.itemsUrl + `/${item.id}`, item, this.httpOptions).pipe(
+      tap(_ => this.log(`updated item id=${item.id}`)),
+      catchError(this.handleError<any>('updateItem'))
     );
   }
 
