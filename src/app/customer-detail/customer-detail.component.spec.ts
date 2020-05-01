@@ -3,7 +3,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {CustomerDetailComponent} from './customer-detail.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {CustomerService} from '../customer/customer.service';
+import {CustomerService} from '../services/customer.service';
 
 describe('CustomerDetailComponent', () => {
   let component: CustomerDetailComponent;
