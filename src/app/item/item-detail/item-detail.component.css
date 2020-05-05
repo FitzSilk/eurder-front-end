@@ -13,15 +13,21 @@ input {
 }
 button {
   margin-top: 20px;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   background-color: #eee;
+  min-width: 150px;
   border: none;
-  padding: 5px 10px;
+  padding: 15px 20px;
   border-radius: 4px;
   cursor: pointer;
 }
 button:hover {
-  background-color: #cfd8dc;
+  background-color: #369;
+  color: white;
+}
+button#buy:hover {
+  background-color: forestgreen;
+  color: white;
 }
 button:disabled {
   background-color: #eee;
@@ -29,6 +35,10 @@ button:disabled {
   cursor: auto;
 }
 
-.mat-card-header h1 {
-  margin: 20px auto;
+.container > div {
+  margin-right: 15px;
+}
+
+.container .visual-content img {
+  margin: 0 auto;
 }
