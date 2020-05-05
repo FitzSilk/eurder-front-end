@@ -1,0 +1,33 @@
+<div>
+  <label>First Name:
+    <input #firstName />
+  </label>
+  <br />
+  <label>Last Name:
+    <input #lastName />
+  </label>
+  <br />
+  <label>Email address:
+    <input #email />
+  </label>
+  <br />
+  <label>Password:
+    <input #password />
+  </label>
+  <br />
+  <label>Phone Number:
+    <input #phoneNumber />
+  </label>
+  <br />
+  <label>Address:<br />
+    <input #street /><br />
+    <input #streetNumber /><br />
+    <input #postalCode /><br />
+    <input #city />
+  </label>
+  <br />
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="addNew(firstName.value, lastName.value, email.value, password.value, phoneNumber.value, street.value, streetNumber.value, postalCode.value, city.value); firstName.value=''">
+    Register
+  </button>
+</div>

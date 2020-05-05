@@ -1,7 +1,17 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/items">Items</a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<header>
+  <h1 id="title">{{title}}</h1>
+  <nav>
+    <a routerLink="/dashboard">Home</a>
+    <a routerLink="/items">Items</a>
+    <a routerLink="/customer">Customer</a>
+  </nav>
+</header>
+<main>
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>
+</main>
+<footer>
+  <p>
+    copyright the amazing @Adrien Hélin!
+  </p>
+</footer>

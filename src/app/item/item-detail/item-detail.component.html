@@ -1,6 +1,6 @@
 <div *ngIf="item">
   <h2>{{item.name | uppercase}}</h2>
-  <img src="{{item.coverLink}}" width="300" height="auto" alt="cover"/>
+  <img src="{{item.visualLink}}" width="300" height="auto" alt="cover"/>
   <p>
     <span>This album is currently sold at {{item.price}} €</span><br/>
     <span>{{item.description}}</span><br/>
@@ -11,5 +11,6 @@
       <input [(ngModel)]="item.amount" placeholder="amount"/>
     </label>
   </div>
+  <button routerLink="/update/{{item.id}}">update</button>
   <button (click)="goBack()">go back</button>
 </div>

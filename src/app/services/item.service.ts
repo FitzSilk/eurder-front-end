@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {Item} from './item/item';
+import {Item} from '../item/item';
 import {Observable, of} from 'rxjs';
 import {MessageService} from './message.service';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
 
 @Injectable({
@@ -12,6 +12,10 @@ export class ItemService {
 
   private itemsUrl = 'http://localhost:8080/api/item';  // URL to web api
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
   constructor(private http: HttpClient, private messageService: MessageService) {
   }
 
@@ -19,6 +23,7 @@ export class ItemService {
   getItems(): Observable<Item[]> {
     return this.http.get<Item[]>(this.itemsUrl)
       .pipe(
+        tap(_ => this.log(`fetched all items`)),
       catchError(this.handleError<Item[]>('getItems', [])));
   }
 
@@ -28,6 +33,33 @@ export class ItemService {
     return this.http.get<Item>(url).pipe(
       tap(_ => this.log(`fetched item id=${id}`)),
       catchError(this.handleError<Item>(`getItem id=${id}`))
+    );
+  }
+
+  /** PUT: update the hero on the server */
+  updateItem(item: Item): Observable<any> {
+    return this.http.put(this.itemsUrl + `/${item.id}`, item, this.httpOptions).pipe(
+      tap(_ => this.log(`updated item id=${item.id}`)),
+      catchError(this.handleError<any>('updateItem'))
+    );
+  }
+
+  /** POST: add a new hero to the server */
+  addNew(item: Item): Observable<Item> {
+    return this.http.post<Item>(this.itemsUrl, item, this.httpOptions).pipe(
+      tap((newItem: Item) => this.log(`added item w/ id=${newItem.id}`)),
+      catchError(this.handleError<Item>('addNew'))
+    );
+  }
+
+  /** DELETE: delete the hero from the server */
+  deleteItem(item: Item | number): Observable<Item> {
+    const id = typeof item === 'number' ? item : item.id;
+    const url = `${this.itemsUrl}/${id}`;
+
+    return this.http.delete<Item>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted item id=${id}`)),
+      catchError(this.handleError<Item>('deleteItem'))
     );
   }
 

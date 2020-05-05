@@ -1,24 +1,28 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {ItemComponent} from './item.component';
+import {ItemFormComponent} from './item-form.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {ItemService} from '../../services/item.service';
 
-describe('ItemComponent', () => {
-  let component: ItemComponent;
-  let fixture: ComponentFixture<ItemComponent>;
+describe('ItemFormComponent', () => {
+  let component: ItemFormComponent;
+  let fixture: ComponentFixture<ItemFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ItemComponent],
+      declarations: [ItemFormComponent],
       imports: [
+        RouterTestingModule,
         HttpClientTestingModule
-      ]
+      ],
+      providers: [ItemService]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ItemComponent);
+    fixture = TestBed.createComponent(ItemFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

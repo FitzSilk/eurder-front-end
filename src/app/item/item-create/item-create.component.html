@@ -1,0 +1,26 @@
+<div>
+  <label>Item name:
+    <input #itemName />
+  </label>
+  <br />
+  <label>Item description:
+    <input #itemDescription />
+  </label>
+  <br />
+  <label>Item price:
+    <input #itemPrice />
+  </label>
+  <br />
+  <label>Item amount:
+    <input #itemAmount />
+  </label>
+  <br />
+  <label>Item visual:
+    <input #itemVisual />
+  </label>
+  <br />
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="addNew(itemName.value, itemDescription.value, +itemPrice.value, +itemAmount.value, itemVisual.value); itemName.value=''">
+    Add your item
+  </button>
+</div>

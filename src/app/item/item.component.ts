@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Item} from './item';
-import {ItemService} from '../item.service';
-import {MessageService} from '../message.service';
+import {ItemService} from '../services/item.service';
+import {MessageService} from '../services/message.service';
 
 @Component({
   selector: 'app-item',
@@ -23,4 +23,5 @@ export class ItemComponent implements OnInit {
     this.itemService.getItems()
       .subscribe(items => this.items = items);
   }
+
 }
