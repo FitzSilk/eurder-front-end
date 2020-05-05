@@ -11,6 +11,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
 import {CustomerComponent} from './customer/customer.component';
 import {CustomerDetailComponent} from './customer/customer-detail/customer-detail.component';
+import { ItemCreateComponent } from './item/item-create/item-create.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {CustomerDetailComponent} from './customer/customer-detail/customer-detai
     CustomerComponent,
     CustomerDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    ItemCreateComponent
   ],
   imports: [
     BrowserModule,

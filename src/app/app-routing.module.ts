@@ -6,6 +6,7 @@ import {ItemDetailComponent} from './item/item-detail/item-detail.component';
 import {ItemFormComponent} from './item/item-form/item-form.component';
 import {CustomerComponent} from './customer/customer.component';
 import {CustomerDetailComponent} from './customer/customer-detail/customer-detail.component';
+import {ItemCreateComponent} from './item/item-create/item-create.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'detail/:id', component: ItemDetailComponent},
   {path: 'update/:id', component: ItemFormComponent},
   {path: 'customer', component: CustomerComponent},
-  {path: 'customer/:id', component: CustomerDetailComponent}
+  {path: 'customer/:id', component: CustomerDetailComponent},
+  {path: 'new', component: ItemCreateComponent}
 ];
 
 @NgModule({

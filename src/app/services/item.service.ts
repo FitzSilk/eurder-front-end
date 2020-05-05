@@ -44,6 +44,14 @@ export class ItemService {
     );
   }
 
+  /** POST: add a new hero to the server */
+  addNew(item: Item): Observable<Item> {
+    return this.http.post<Item>(this.itemsUrl, item, this.httpOptions).pipe(
+      tap((newItem: Item) => this.log(`added item w/ id=${newItem.id}`)),
+      catchError(this.handleError<Item>('addNew'))
+    );
+  }
+
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
     this.messageService.add(`ItemService: ${message}`);

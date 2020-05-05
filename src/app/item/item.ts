@@ -4,5 +4,5 @@ export interface Item {
   description: string;
   price: number;
   amount: number;
-  coverLink: string;
+  visualLink: string;
 }
