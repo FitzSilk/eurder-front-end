@@ -4,6 +4,7 @@ import {Observable, of} from 'rxjs';
 import {MessageService} from './message.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
+import {Address} from '../customer/imports/address';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,15 @@ export class CustomerService {
     return this.http.put(this.customerUrl, customer, this.httpOptions).pipe(
       tap(_ => this.log(`updated customer id=${customer.id}`)),
       catchError(this.handleError<any>('updateCustomer'))
+    );
+  }
+
+  /** POST: add a new hero to the server */
+  addNew(customer: Customer, address: Address): Observable<Customer> {
+    customer.address = address;
+    return this.http.post<Customer>(this.customerUrl, customer, this.httpOptions).pipe(
+      tap((newCustomer: Customer) => this.log(`added customer w/ id=${newCustomer.id}`)),
+      catchError(this.handleError<Customer>('addCustomer'))
     );
   }
 
