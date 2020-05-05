@@ -38,4 +38,7 @@ export class ItemFormComponent implements OnInit {
       .subscribe(() => this.goBack());
   }
 
+  delete(item: Item): void {
+    this.itemService.deleteItem(item).subscribe();
+  }
 }

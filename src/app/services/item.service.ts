@@ -52,6 +52,17 @@ export class ItemService {
     );
   }
 
+  /** DELETE: delete the hero from the server */
+  deleteItem(item: Item | number): Observable<Item> {
+    const id = typeof item === 'number' ? item : item.id;
+    const url = `${this.itemsUrl}/${id}`;
+
+    return this.http.delete<Item>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted item id=${id}`)),
+      catchError(this.handleError<Item>('deleteItem'))
+    );
+  }
+
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
     this.messageService.add(`ItemService: ${message}`);
