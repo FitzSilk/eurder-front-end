@@ -1,9 +1,20 @@
-<h2>Items in sale</h2>
-<ul class="items">
-  <li *ngFor="let item of items">
+<h2>Items</h2>
+
+<mat-grid-list cols="3" rowHeight="1:1" gutterSize="15px">
+  <mat-grid-tile *ngFor="let item of items">
     <a routerLink="/detail/{{item.id}}">
-      <span class="badge">{{item.id}}.</span> {{item.name}}
+      <div class="container">
+        <h3>{{item.name | titlecase}}</h3>
+        <img src="{{item.visualLink}}" width="300" height="300" alt="visual of the product"/>
+        <p class="price">
+          Price: {{item.price | currency}}
+          <span class="stock-amount" *ngIf="item.amount<5" style="color: red;">Stock: {{item.amount}}</span>
+          <span class="stock-amount" *ngIf="item.amount<10 && item.amount >= 5" style="color: orange;">Stock: {{item.amount}}</span>
+          <span class="stock-amount" *ngIf="item.amount>=10" style="color: green;">Stock: {{item.amount}}</span>
+        </p>
+      </div>
     </a>
-  </li>
-</ul>
+  </mat-grid-tile>
+</mat-grid-list>
+
 <button routerLink="/new">Add an item</button>

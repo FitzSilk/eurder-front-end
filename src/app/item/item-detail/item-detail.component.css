@@ -28,3 +28,7 @@ button:disabled {
   color: #ccc;
   cursor: auto;
 }
+
+.mat-card-header h1 {
+  margin: 20px auto;
+}
