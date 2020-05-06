@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {FormBuilder} from '@angular/forms';
 import {ItemService} from '../../services/item.service';
 import {Location} from '@angular/common';
+import {Item} from '../item';
 
 @Component({
   selector: 'app-item-create',
@@ -41,10 +42,6 @@ export class ItemCreateComponent implements OnInit {
     this.checkoutForm.reset();
 
     console.warn('Your item has been submitted', itemData);
-  }
-
-  countChar(val): number {
-    return 255 - val.value.length;
   }
 
 }
