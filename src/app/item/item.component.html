@@ -1,4 +1,8 @@
-<h2>Items</h2>
+<div class="container" fxLayout="row wrap">
+  <h2 fxLayout="column" fxFlex>Items</h2>
+  <app-item-search fxLayout="column" fxFlex></app-item-search>
+</div>
+
 
 <mat-grid-list gutterSize="15px" [cols]="breakpoint" rowHeight="1:1" (window:resize)="onResize($event)">
   <mat-grid-tile *ngFor="let item of items">
@@ -9,7 +13,8 @@
         <p class="price">
           Price: {{item.price | currency}}
           <span class="stock-amount" *ngIf="item.amount<5" style="color: red;">Stock: {{item.amount}}</span>
-          <span class="stock-amount" *ngIf="item.amount<10 && item.amount >= 5" style="color: orange;">Stock: {{item.amount}}</span>
+          <span class="stock-amount" *ngIf="item.amount<10 && item.amount >= 5"
+                style="color: orange;">Stock: {{item.amount}}</span>
           <span class="stock-amount" *ngIf="item.amount>=10" style="color: green;">Stock: {{item.amount}}</span>
         </p>
       </div>

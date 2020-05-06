@@ -24,3 +24,7 @@
 .stock-amount {
   float: right;
 }
+
+.container {
+  justify-content: space-between;
+}

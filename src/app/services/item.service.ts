@@ -63,6 +63,20 @@ export class ItemService {
     );
   }
 
+  /* GET items whose name contains search term */
+  searchItems(term: string): Observable<Item[]> {
+    if (!term.trim()) {
+      // if not search term, return empty item array.
+      return of([]);
+    }
+    return this.http.get<Item[]>(`${this.itemsUrl}/?name=${term}`).pipe(
+      tap(x => x.length ?
+        this.log(`found items matching "${term}"`) :
+        this.log(`no items matching "${term}"`)),
+      catchError(this.handleError<Item[]>('searchItems', []))
+    );
+  }
+
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
     this.messageService.add(`ItemService: ${message}`);
