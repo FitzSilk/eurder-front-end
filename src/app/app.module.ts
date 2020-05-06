@@ -11,8 +11,13 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
 import {CustomerComponent} from './customer/customer.component';
 import {CustomerDetailComponent} from './customer/customer-detail/customer-detail.component';
-import { ItemCreateComponent } from './item/item-create/item-create.component';
-import { CustomerCreateComponent } from './customer/customer-create/customer-create.component';
+import {ItemCreateComponent} from './item/item-create/item-create.component';
+import {CustomerCreateComponent} from './customer/customer-create/customer-create.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
+import {FlexModule} from '@angular/flex-layout';
+import {ItemSearchComponent} from './item/item-search/item-search.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +30,18 @@ import { CustomerCreateComponent } from './customer/customer-create/customer-cre
     MessagesComponent,
     DashboardComponent,
     ItemCreateComponent,
-    CustomerCreateComponent
+    CustomerCreateComponent,
+    ItemSearchComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatCardModule,
+    FlexModule
   ],
   providers: [],
   bootstrap: [AppComponent]

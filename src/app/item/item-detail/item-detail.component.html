@@ -1,16 +1,24 @@
-<div *ngIf="item">
-  <h2>{{item.name | uppercase}}</h2>
-  <img src="{{item.visualLink}}" width="300" height="auto" alt="cover"/>
-  <p>
-    <span>This album is currently sold at {{item.price}} €</span><br/>
-    <span>{{item.description}}</span><br/>
-    <span>We have {{item.amount}} pieces in stock.</span>
-  </p>
-  <div>
-    <label>Buy:
-      <input [(ngModel)]="item.amount" placeholder="amount"/>
-    </label>
+<mat-card *ngIf="item">
+  <div class="container" fxLayout="row wrap">
+    <div class="visual-content" fxLayout="column" fxFlex>
+      <img src="{{item.visualLink}}" width="600" height="auto" alt="visual of the product"/>
+    </div>
+    <div class="textual-content" fxLayout="column" fxFlex>
+      <h1>{{item.name}}</h1>
+      <mat-card-content>
+        <h2>Description:</h2>
+        <p>{{item.description}}</p>
+        <span>Price: {{item.price | currency}}</span>
+        <br/>
+        <span>Current stock: {{item.amount}}</span>
+      </mat-card-content>
+      <mat-card-actions>
+        <!--<button id="buy" (click)="buy()">Buy</button>
+        <br/>-->
+        <button routerLink="/update/{{item.id}}">update</button>
+        <br/>
+        <button (click)="goBack()">go back</button>
+      </mat-card-actions>
+    </div>
   </div>
-  <button routerLink="/update/{{item.id}}">update</button>
-  <button (click)="goBack()">go back</button>
-</div>
+</mat-card>
