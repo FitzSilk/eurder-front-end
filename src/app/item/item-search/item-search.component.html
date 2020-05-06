@@ -1,5 +1,5 @@
 <div id="search-component">
-  <input #searchBox id="search-box" (input)="search(searchBox.value)" value="search" onfocus="this.value=''"/>
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" value="Filter by name..." onfocus="this.value=''"/>
 
   <ul class="search-result">
     <li *ngFor="let item of items$ | async">

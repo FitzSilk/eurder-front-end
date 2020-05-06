@@ -10,6 +10,8 @@ import {catchError, tap} from 'rxjs/operators';
 })
 export class ItemService {
 
+  items: Item[];
+
   private itemsUrl = 'http://localhost:8080/api/item';  // URL to web api
 
   httpOptions = {
@@ -98,5 +100,10 @@ export class ItemService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
+  }
+
+  clearItem() {
+    this.items = [];
+    return this.items;
   }
 }

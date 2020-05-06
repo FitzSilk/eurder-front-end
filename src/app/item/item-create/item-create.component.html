@@ -1,26 +1,42 @@
-<div>
-  <label>Item name:
-    <input #itemName />
-  </label>
-  <br />
-  <label>Item description:
-    <input #itemDescription />
-  </label>
-  <br />
-  <label>Item price:
-    <input #itemPrice />
-  </label>
-  <br />
-  <label>Item amount:
-    <input #itemAmount />
-  </label>
-  <br />
-  <label>Item visual:
-    <input #itemVisual />
-  </label>
-  <br />
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="addNew(itemName.value, itemDescription.value, +itemPrice.value, +itemAmount.value, itemVisual.value); itemName.value=''">
-    Add your item
-  </button>
-</div>
+<h2>Create an item</h2>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+  <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label for="description">
+      Description
+    </label>
+    <input id="description" type="text" formControlName="description">
+  </div>
+
+  <div>
+    <label for="price">
+      Price
+    </label>
+    <input id="price" type="number" formControlName="price">
+  </div>
+
+  <div>
+    <label for="amount">
+      Amount
+    </label>
+    <input id="amount" type="number" formControlName="amount">
+  </div>
+
+  <div>
+    <label for="visualLink">
+      Visual
+    </label>
+    <input id="visualLink" type="text" formControlName="visualLink">
+  </div>
+
+  <button class="button" type="submit">Submit your item</button>
+
+</form>
