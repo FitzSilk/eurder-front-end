@@ -6,37 +6,48 @@
     <label for="name">
       Name
     </label>
-    <input id="name" type="text" formControlName="name">
+    <br/>
+    <input id="name" type="text" formControlName="name" required>
   </div>
 
   <div>
     <label for="description">
       Description
     </label>
-    <input id="description" type="text" formControlName="description">
-  </div>
-
-  <div>
-    <label for="price">
-      Price
-    </label>
-    <input id="price" type="number" formControlName="price">
-  </div>
-
-  <div>
-    <label for="amount">
-      Amount
-    </label>
-    <input id="amount" type="number" formControlName="amount">
+    <br/>
+    <textarea id="description" type="text" formControlName="description"
+              placeholder="Try to describe in a few words your item." maxlength="255"
+    (keyup)="countChar(this)">
+    </textarea>
   </div>
 
   <div>
     <label for="visualLink">
       Visual
     </label>
-    <input id="visualLink" type="text" formControlName="visualLink">
+    <br/>
+    <input id="visualLink" type="URL" formControlName="visualLink">
   </div>
 
-  <button class="button" type="submit">Submit your item</button>
+  <div id="numbers-container">
+    <div id="price-container">
+      <label for="price">
+        Price
+      </label>
+      <input id="price" type="number" formControlName="price" min="0">
+    </div>
+
+    <div id="amount-container">
+      <label for="amount">
+        Amount of stock
+      </label>
+      <input id="amount" type="number" formControlName="amount" min="0">
+    </div>
+  </div>
+
+  <div id="button-container">
+    <button id="create" class="button" type="submit">Create</button>
+    <input id="cancel" class="button" type="reset" value="Cancel">
+  </div>
 
 </form>

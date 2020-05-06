@@ -15,7 +15,7 @@ body {
 }
 body, input[type="text"], button {
   color: #333;
-  font-family: Cambria, Georgia;
+  font-family: Cambria, Georgia, 'sans-serif';
 }
 /* everywhere else */
 * {
@@ -24,3 +24,29 @@ body, input[type="text"], button {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+button, .button {
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #eee;
+  min-width: 150px;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover, .button:hover {
+  background-color: #369;
+  color: white;
+}
+button#buy:hover {
+  background-color: forestgreen;
+  color: white;
+}
+button:disabled, .button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}

@@ -10,9 +10,6 @@ import {Location} from '@angular/common';
   styleUrls: ['./item-create.component.css']
 })
 export class ItemCreateComponent implements OnInit {
-  /*
-    @Input() items: Item[];
-  */
   items;
   checkoutForm;
 
@@ -44,6 +41,10 @@ export class ItemCreateComponent implements OnInit {
     this.checkoutForm.reset();
 
     console.warn('Your item has been submitted', itemData);
+  }
+
+  countChar(val): number {
+    return 255 - val.value.length;
   }
 
 }
