@@ -12,7 +12,7 @@ export class ItemService {
 
   items: Item[];
 
-  private itemsUrl = 'http://localhost:8080/api/item';  // URL to web api
+  private itemsUrl = 'https://eurder-back-end.herokuapp.com/api/item';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

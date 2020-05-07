@@ -10,7 +10,7 @@ import {catchError, tap} from 'rxjs/operators';
 })
 export class CustomerService {
 
-  private customerUrl = 'http://localhost:8080/api/member';  // URL to web api
+  private customerUrl = 'https://eurder-back-end.herokuapp.com/api/member';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
