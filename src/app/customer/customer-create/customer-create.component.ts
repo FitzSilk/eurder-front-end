@@ -37,7 +37,6 @@ export class CustomerCreateComponent implements OnInit {
   }
 
   onSubmit(customerData) {
-    console.log(customerData);
     // Process checkout data here
     this.customerService.addNew(customerData).subscribe(customer => {
       this.customers.push((customer));
