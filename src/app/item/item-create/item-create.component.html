@@ -15,11 +15,20 @@
       Description
     </label>
     <br/>
+
+<!--    <textarea id="description" type="text" formControlName="description"
+              placeholder="Try to describe in a few words your item." maxlength="255"
+              [formControl]="control">
+    </textarea>
+    <span placeholder="255 characters left.">{{this.control}} characters left.</span>
+-->
+
     <textarea id="description" type="text" formControlName="description"
               placeholder="Try to describe in a few words your item." maxlength="255"
               [(ngModel)]="description">
     </textarea>
     <span placeholder="255 characters left.">{{255-description.length}} characters left.</span>
+
   </div>
 
   <div>
