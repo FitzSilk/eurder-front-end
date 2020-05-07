@@ -13,7 +13,6 @@ import {Item} from '../item';
 export class ItemCreateComponent implements OnInit {
   items;
   checkoutForm;
-  control;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,7 +32,6 @@ export class ItemCreateComponent implements OnInit {
 
   ngOnInit() {
     this.items = this.itemService.getItems();
-    this.control = 255;
   }
 
   onSubmit(itemData) {
