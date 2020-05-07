@@ -4,7 +4,6 @@ import {Observable, of} from 'rxjs';
 import {MessageService} from './message.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
-import {Address} from '../customer/imports/address';
 
 @Injectable({
   providedIn: 'root'
@@ -46,8 +45,7 @@ export class CustomerService {
   }
 
   /** POST: add a new hero to the server */
-  addNew(customer: Customer, address: Address): Observable<Customer> {
-    customer.address = address;
+  addNew(customer: Customer): Observable<Customer> {
     return this.http.post<Customer>(this.customerUrl, customer, this.httpOptions).pipe(
       tap((newCustomer: Customer) => this.log(`added customer w/ id=${newCustomer.id}`)),
       catchError(this.handleError<Customer>('addCustomer'))
@@ -75,5 +73,9 @@ export class CustomerService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
+  }
+
+  clearCustomer() {
+    return [];
   }
 }
